@@ -2,22 +2,8 @@
 
 @include mat-core();
 
-$theahotel-primary: mat-palette($mat-teal, 200);
-$theahotel-accent:  mat-palette($mat-teal, 50);
 
-$theahotel-warn:    mat-palette($mat-red);
 
-$theahotel: mat-light-theme($theahotel-primary, $theahotel-accent, $theahotel-warn);
-
-@include angular-material-theme($theahotel);
-
-.navtabs-container {
-    background-color: mat-color($theahotel-accent);
-}
-
-// @import './app/navigation/navtabs/navtabs.component-theme.scss';
-
-/*
 $thea-primary: (
   50 : #ffffff,
   100 : #ffffff,
@@ -51,6 +37,7 @@ $thea-primary: (
   )
 );
 
+
 $thea-accent: (
   50 : #ffffff,
   100 : #ffffff,
@@ -83,14 +70,33 @@ $thea-accent: (
     A700 : #000000,
   )
 );
-*/
+
+
+
+$theahotel-primary: mat-palette($thea-primary, 700, 300, 900);
+$theahotel-accent:  mat-palette($thea-accent, 50, 400, 700);
+
+$theahotel-warn:    mat-palette($mat-red);
+
+$theahotel: mat-light-theme($theahotel-primary, $theahotel-accent, $theahotel-warn);
 
 // Navtabs component scss file
-//@include navtabs-component-theme($theahotel);
+@import './app/navigation/navtabs/navtabs.component-theme.scss';
+
+@include angular-material-theme($theahotel);
+@include navtabs-component-theme($theahotel);
 
 
-///////////////////////////////////////////////////////
-/*
+// All our syles will go here
+.mat-list-option:hover, 
+.mat-list-option.mat-list-item-focus, 
+.mat-nav-list .mat-list-item:hover, 
+.mat-nav-list .mat-list-item.mat-list-item-focus {
+  background-color: mat-color($theahotel-primary, 300);
+  color: mat-color($theahotel-primary, 900);
+}
+
+
 $thea-typography: mat-typography-config(
   $font-family:   'Rubik, sans-serif',
   $display-4:     mat-typography-level(112px, 112px, 300),
@@ -108,7 +114,7 @@ $thea-typography: mat-typography-config(
   // Line-height must be unit-less fraction of the font-size.
   $input:         mat-typography-level(inherit, 1.125, 400)
 );
-*/
+
 
 // @include mat-base-typography($thea-typography);
 
@@ -119,19 +125,3 @@ $thea-typography: mat-typography-config(
 // @include angular-material-typography($thea-typography);
 
 // @include mat-core($thea-typography);
-
-
-
-// All our styles will go here
-
-/*
-
-.mat-list-option:hover, 
-.mat-list-option.mat-list-item-focus, 
-.mat-nav-list .mat-list-item:hover, 
-.mat-nav-list .mat-list-item.mat-list-item-focus {
-  background-color: mat-color($theahotel-primary, 300);
-  color: mat-color($theahotel-primary, 900);
-}
-
-*/
